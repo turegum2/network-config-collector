@@ -108,33 +108,3 @@ class KornfeldOSDriver(CiscoBaseConnection):
         """Выход из режима конфигурирования."""
         return super().exit_config_mode(exit_config=exit_config, **kwargs)
 
-
-def register_kornfeld_driver() -> None:
-    """
-    Регистрирует кастомный драйвер в Netmiko.
-    Вызывать один раз перед первым ConnectHandler().
-    """
-    try:
-        from netmiko import ConnectHandler
-        from netmiko import platforms
-
-        # Netmiko использует словарь CLASS_MAPPER для маппинга device_type → класс
-        try:
-            from netmiko.ssh_dispatcher import CLASS_MAPPER
-            CLASS_MAPPER["kornfeld"] = KornfeldOSDriver
-            CLASS_MAPPER["kornfeld_ssh"] = KornfeldOSDriver
-            logger.debug("Kornfeld driver зарегистрирован в CLASS_MAPPER (Netmiko < 4.x)")
-        except ImportError:
-            pass
-
-        # Netmiko 4.x использует другой механизм
-        try:
-            from netmiko.ssh_dispatcher import CLASS_MAPPER_BASE
-            CLASS_MAPPER_BASE["kornfeld"] = KornfeldOSDriver
-            CLASS_MAPPER_BASE["kornfeld_ssh"] = KornfeldOSDriver
-            logger.debug("Kornfeld driver зарегистрирован в CLASS_MAPPER_BASE (Netmiko 4.x)")
-        except ImportError:
-            pass
-
-    except Exception as e:
-        logger.warning("Не удалось зарегистрировать Kornfeld driver: %s", e)

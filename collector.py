@@ -20,8 +20,7 @@ from netmiko.exceptions import (
 )
 from paramiko.ssh_exception import SSHException
 
-from kornfeld_driver import register_kornfeld_driver
-register_kornfeld_driver()
+from kornfeld_driver import KornfeldOSDriver
 
 logger = logging.getLogger("collector")
 
@@ -183,7 +182,17 @@ class DeviceCollector:
             "fast_cli": False,
         }
 
-        with ConnectHandler(**conn_params) as conn:
+        # ConnectHandler валидирует device_type по жёсткому встроенному списку платформ
+        # и отклоняет всё неизвестное — в том числе наш 'kornfeld'.
+        # Решение: для Kornfeld инстанциируем KornfeldOSDriver напрямую, минуя
+        # ConnectHandler. Прямой вызов класса не проверяет device_type.
+        # Для всех остальных вендоров ConnectHandler работает как обычно.
+        if self.vendor == "kornfeld":
+            conn_obj = KornfeldOSDriver(**conn_params)
+        else:
+            conn_obj = ConnectHandler(**conn_params)
+
+        with conn_obj as conn:
             # Читаем hostname из prompt устройства.
             # base_prompt устанавливается внутри session_preparation() → set_base_prompt().
             # Для leaf01# → base_prompt = "leaf01"

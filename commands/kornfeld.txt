@@ -6,101 +6,35 @@
 # ВАЖНО: '| no-more' добавляется автоматически драйвером KornfeldOSDriver
 # ко всем show-командам — не нужно указывать вручную.
 
-# --- Система и платформа ---
+# --- Система и инвентаризация ---
 show version
 show system
-show uptime
-show reboot-cause
 show platform syseeprom
-show platform psu
-show platform firmware
-show platform sensor
-show image list
-show users
-show clock
 
 # --- Текущая конфигурация ---
 show running-configuration
-show startup-configuration
 
-# --- Интерфейсы ---
+# --- Интерфейсы и L2 ---
 show interface status
 show interface
-show interface Management0
-show PortChannel summary
-show subinterfaces
-show subinterfaces status
 show ip interfaces
-show interface transceiver
-show interface breakout
-
-# --- VLAN и L2 ---
+show PortChannel summary
 show Vlan
 show mac address-table
-show mac address-table count
-show mac address-table aging-time
 show spanning-tree
-show errdisable recovery
-show storm-control
 
-# --- IP и маршрутизация ---
+# --- IP, маршрутизация и соседи ---
 show ip route
 show ip arp
 show ip vrf
-show ip static-anycast-gateway
-show ip prefix-list
-show load-share
-
-# --- BGP ---
-show bgp all
-show bgp ipv4
-show bgp l2vpn evpn summary
-show bgp l2vpn evpn vni
-show bgp l2vpn evpn route
-show running-configuration bgp
-
-# --- EVPN / VXLAN ---
-show evpn
-show evpn vni
-show evpn mac
-show evpn arp-cache
-show vxlan interface
-show vxlan remote vtep
-show vxlan remote vni
-show vxlan remote mac
-show vxlan vlan-vni-mappings
-show vxlan arp-suppression
-
-# --- MC-LAG ---
-show mclag brief
-show mclag separate-ip-interfaces
-
-# --- LLDP (топология — ключевое для восстановления архитектуры) ---
-show lldp table
 show lldp neighbor
-show lldp statistics
 
-# --- BFD ---
+# --- Специфика ЦОД (Логическая топология фабрики) ---
+show mclag brief
+show bgp l2vpn evpn summary
+show vxlan remote vtep
 show bfd peers brief
-show bfd peers
-
-# --- VRRP ---
 show vrrp
 
-# --- UDLD ---
-show udld global
-show udld neighbors
-
-# --- Логи и диагностика ---
+# --- Логи ---
 show logging lines 200
-show reboot-cause
-show core config
-show core list
-
-# --- OSPF (если используется) ---
-show ip ospf
-show ip ospf database
-
-# --- ACL ---
-show ip access-group
-show mac access-group

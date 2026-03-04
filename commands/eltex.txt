@@ -1,19 +1,15 @@
 # Команды для оборудования Eltex (MES/ESR серии)
-# Строки, начинающиеся с # — комментарии, игнорируются
 
 show version
 show system
 show running-config
 show interfaces status
-show interfaces counters
-show vlan
+show ip interface brief
+show ip interfaces
 show mac address-table
+show arp
 show ip route
-show ip interface
 show lldp neighbors
-show lldp neighbors detail
+show cdp neighbors
 show spanning-tree
-show spanning-tree detail
-show lacp
 show port-channel summary
-show log

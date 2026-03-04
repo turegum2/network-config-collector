@@ -50,3 +50,12 @@ vendor_map:
   huawei: "huawei"
   huawei_vrp: "huawei"
   huawei_vrpv8: "huawei_vrpv8"
+
+  # --- Juniper ---
+  # juniper_junos поддерживается Netmiko нативно
+  # Подходит для MX (core/edge router), ACX (access/aggregation), SRX (firewall)
+  juniper: "juniper_junos"
+  juniper_junos: "juniper_junos"
+  juniper_mx: "juniper_junos"
+  juniper_acx: "juniper_junos"
+  juniper_srx: "juniper_junos"

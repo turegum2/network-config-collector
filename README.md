@@ -104,6 +104,10 @@ ip,vendor,username,password,port
 | `cisco_xe` | Cisco IOS-XE |
 | `cisco_nxos` | Cisco NX-OS |
 | `huawei` / `huawei_vrp` | Huawei VRP |
+| `juniper` / `juniper_junos` | Juniper JunOS (MX, ACX, SRX) |
+| `juniper_mx` | Juniper MX (core/edge router) |
+| `juniper_acx` | Juniper ACX (access/aggregation) |
+| `juniper_srx` | Juniper SRX (firewall/security) |
 
 ---
 

@@ -1,0 +1,140 @@
+# Juniper JunOS — команды для MX / ACX / SRX
+#
+# Netmiko (juniper_junos) автоматически отключает пагинацию через
+# set cli screen-length 0 в session_preparation(), поэтому
+# добавлять | no-more вручную не нужно.
+#
+# Секции:
+#   - Система и платформа (все платформы)
+#   - Конфигурация (все платформы)
+#   - Интерфейсы (все платформы)
+#   - L2 / Ethernet (MX, ACX)
+#   - Маршрутизация — underlay (все платформы)
+#   - BGP / MPLS / L3VPN (MX, ACX)
+#   - VXLAN / EVPN (MX)
+#   - Безопасность (SRX)
+#   - Топология и диагностика (все платформы)
+
+# =============================================================================
+# СИСТЕМА И ПЛАТФОРМА
+# =============================================================================
+
+show version
+show system information
+show system uptime
+show system users
+show system storage
+show system memory
+show system processes summary
+show system alarms
+show chassis hardware
+show chassis environment
+show chassis fpc
+show chassis fpc pic-status
+show chassis routing-engine
+
+# =============================================================================
+# КОНФИГУРАЦИЯ
+# =============================================================================
+
+show configuration
+show configuration | display set
+
+# =============================================================================
+# ИНТЕРФЕЙСЫ
+# =============================================================================
+
+show interfaces terse
+show interfaces detail
+show interfaces statistics
+show interfaces diagnostics optics
+show lacp interfaces
+show lacp statistics
+
+# =============================================================================
+# L2 / ETHERNET (MX, ACX)
+# =============================================================================
+
+show ethernet-switching table
+show ethernet-switching interface
+show vlans
+show spanning-tree bridge
+show spanning-tree interface
+show l2-learning global-mac-count
+show lldp neighbors
+show lldp statistics
+
+# =============================================================================
+# МАРШРУТИЗАЦИЯ — UNDERLAY
+# =============================================================================
+
+show route summary
+show route
+show route protocol static
+show arp
+show ipv6 neighbors
+show isis adjacency
+show isis interface
+show isis database
+show ospf neighbor
+show ospf interface
+show ospf database summary
+
+# =============================================================================
+# BGP
+# =============================================================================
+
+show bgp summary
+show bgp neighbor
+show bgp group
+show route protocol bgp
+
+# =============================================================================
+# MPLS / L3VPN (MX, ACX)
+# =============================================================================
+
+show mpls interface
+show mpls lsp
+show mpls lsp detail
+show ldp interface
+show ldp neighbor
+show ldp session
+show route table mpls
+show l3vpn connections
+show route instance
+
+# =============================================================================
+# VXLAN / EVPN (MX)
+# =============================================================================
+
+show evpn instance
+show evpn database
+show evpn mac-table
+show evpn arp-table
+show route table bgp.evpn.0
+show interfaces vtep
+
+# =============================================================================
+# БЕЗОПАСНОСТЬ (SRX)
+# =============================================================================
+
+show security zones
+show security policies
+show security flow session summary
+show security flow statistics
+show security ike security-associations
+show security ipsec security-associations
+show security nat source summary
+show security nat destination summary
+show security screen ids-option
+show firewall
+
+# =============================================================================
+# ТОПОЛОГИЯ И ДИАГНОСТИКА
+# =============================================================================
+
+show route forwarding-table summary
+show pfe statistics traffic
+show log messages | last 200
+show log chassisd | last 100
+show system core-dumps

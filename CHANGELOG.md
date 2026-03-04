@@ -1,3 +1,8 @@
+## v1.1.0 (2026-03-04)
+- Добавлена поддержка Juniper JunOS (MX, ACX, SRX)
+- Новый файл commands/juniper.txt — 74 команды (система, интерфейсы, BGP, MPLS/L3VPN, VXLAN/EVPN, Security)
+- config.yaml: добавлены псевдонимы juniper / juniper_mx / juniper_acx / juniper_srx
+
 ## v1.0.0 (2026-03-04)
 - Поддержка Kornfeld OS (D1156/D2132), Eltex, Cisco, Huawei
 - Кастомный Netmiko-драйвер для Kornfeld с автоматическим | no-more

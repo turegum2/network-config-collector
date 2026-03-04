@@ -1,19 +1,15 @@
 # Команды для оборудования Cisco (IOS/IOS-XE)
 
 show version
+show inventory
 show running-config
+show ip interface brief
 show interfaces status
 show interfaces
-show vlan brief
 show mac address-table
+show arp
 show ip route
-show ip interface brief
-show cdp neighbors
 show cdp neighbors detail
-show lldp neighbors
 show lldp neighbors detail
 show spanning-tree
-show spanning-tree detail
 show etherchannel summary
-show logging
-show inventory

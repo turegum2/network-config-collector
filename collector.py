@@ -197,6 +197,9 @@ class DeviceCollector:
             # base_prompt устанавливается внутри session_preparation() → set_base_prompt().
             # Для leaf01# → base_prompt = "leaf01"
             self.hostname = conn.base_prompt.strip()
+            # Убираем "user@" префикс
+            if "@" in self.hostname:
+                self.hostname = self.hostname.split("@", 1)[1]
             result["hostname"] = self.hostname
 
             # Переключаем логгер на hostname теперь, когда он известен

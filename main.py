@@ -149,14 +149,14 @@ def print_summary(results: list[dict], log_file: Path) -> None:
     fail = total - ok
 
     print("\n" + "=" * 70)
-    print(f"  ИТОГО: {total} устройств | ✓ Успешно: {ok} | ✗ Ошибок: {fail}")
+    print(f"  ИТОГО: {total} устройств | OK: {ok} | Ошибок: {fail}")
     print("=" * 70)
 
     if fail:
         print("\nУСТРОЙСТВА С ОШИБКАМИ:")
         for r in results:
             if not r["success"]:
-                print(f"  ✗ {r['ip']}  →  {r['error']}")
+                print(f"  [!!] {r['ip']}  →  {r['error']}")
 
     print(f"\nПолный лог: {log_file}")
     print(f"Собранные данные: output/\n")
@@ -270,7 +270,7 @@ def main():
 
             results.append(result)
 
-            status = "✓" if result["success"] else "✗"
+            status = "[OK]" if result["success"] else "[!!]"
             # hostname известен только при успехе; при ошибке подключения — None
             hostname_str = result["hostname"] or "?"
             detail = (

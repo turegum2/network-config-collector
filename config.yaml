@@ -1,0 +1,52 @@
+# Глобальные настройки сборщика конфигураций
+
+connection:
+  # Таймаут установки SSH-соединения (секунды)
+  connect_timeout: 30
+  # Таймаут чтения ответа на одну команду (секунды)
+  # show running-configuration на Kornfeld с большим конфигом может занимать до 30-60 сек
+  command_timeout: 120
+  # Таймаут ожидания баннера/приветствия после подключения (секунды)
+  banner_timeout: 20
+  # Задержка между командами (секунды). 0 — без задержки.
+  inter_command_delay: 0.5
+
+execution:
+  # Количество параллельных потоков сбора
+  max_workers: 10
+  # Количество попыток подключения при ошибке
+  retry_count: 2
+  # Пауза между попытками (секунды)
+  retry_delay: 5
+
+output:
+  # Папка для сохранения собранных данных
+  output_dir: "output"
+  # Папка для лог-файлов
+  log_dir: "logs"
+  # Кодировка выходных файлов
+  encoding: "utf-8"
+
+# Маппинг vendor из инвентаря → тип устройства Netmiko
+# При необходимости добавьте новые вендоры
+vendor_map:
+  # --- YADRO Kornfeld OS ---
+  # Кастомный драйвер KornfeldOSDriver (см. kornfeld_driver.py)
+  # Автоматически добавляет '| no-more' ко всем show-командам
+  kornfeld: "kornfeld"
+  kornfeld_dc: "kornfeld"
+
+  # --- Eltex ---
+  eltex: "eltex"
+  eltex_esr: "eltex_esr"
+
+  # --- Cisco ---
+  cisco: "cisco_ios"
+  cisco_ios: "cisco_ios"
+  cisco_xe: "cisco_xe"
+  cisco_nxos: "cisco_nxos"
+
+  # --- Huawei ---
+  huawei: "huawei"
+  huawei_vrp: "huawei"
+  huawei_vrpv8: "huawei_vrpv8"

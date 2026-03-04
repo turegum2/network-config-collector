@@ -1,0 +1,18 @@
+# Команды для оборудования Huawei (VRP)
+
+display version
+display current-configuration
+display interface brief
+display interface
+display vlan
+display mac-address
+display ip routing-table
+display ip interface brief
+display lldp neighbor brief
+display lldp neighbor verbose
+display stp brief
+display stp
+display eth-trunk
+display logbuffer
+display device
+display patch-information

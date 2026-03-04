@@ -1,0 +1,8 @@
+ip,vendor,username,password,port
+192.168.1.1,kornfeld,admin,admin,22
+192.168.1.2,kornfeld,admin,admin,22
+192.168.1.10,kornfeld,admin,admin,22
+192.168.2.1,eltex,admin,password,22
+192.168.3.1,cisco,admin,password,22
+192.168.4.1,huawei,admin,Admin@123,22
+

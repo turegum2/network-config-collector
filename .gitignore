@@ -1,0 +1,12 @@
+# Собранные данные и логи
+output/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Реальный инвентарь с паролями
+inventory_prod.csv
